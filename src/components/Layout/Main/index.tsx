@@ -10,8 +10,9 @@ export default function Main({ children }: PropsWithChildren) {
 }
 
 const Wrapper = styled.div`
+  display: flex;
   min-height: 100vh;
-  padding: 100px 0 40px;
+  padding: 100px 0px 40px;
 
   background-color: ${({ theme }) => theme.colors["--light-gray"]};
 `;

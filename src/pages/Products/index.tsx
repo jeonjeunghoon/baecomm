@@ -43,6 +43,7 @@ const ProductPage = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
   padding: 40px 70px;
 
   border-radius: 8px;
