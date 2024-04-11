@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+
 import { Product as Props } from "../../types/products";
+import Text from "../common/Text";
 
 export default function Product({ id, thumbnail, brand, title, price }: Props) {
   return (
@@ -9,10 +11,14 @@ export default function Product({ id, thumbnail, brand, title, price }: Props) {
         <Image src={thumbnail} alt='상품 이미지' />
         <Body>
           <BrandTitleContainer>
-            <BrandText>{brand}</BrandText>
-            <TitleText>{title}</TitleText>
+            <Text size='small' weight='bold' color='gray'>
+              {brand}
+            </Text>
+            <Text size='small' stretch lineLimit={1}>
+              {title}
+            </Text>
           </BrandTitleContainer>
-          <PriceText>${price.toLocaleString("en-US")}</PriceText>
+          <Text weight='bold'>${price.toLocaleString("en-US")}</Text>
         </Body>
       </StyledLink>
     </Container>
@@ -54,25 +60,4 @@ const Body = styled.div`
 const BrandTitleContainer = styled.div`
   display: flex;
   gap: 8px;
-  height: 32px;
-`;
-
-const BrandText = styled.span`
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: gray;
-`;
-
-const TitleText = styled.span`
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  flex: 1;
-  font-size: 1.4rem;
-  overflow: hidden;
-  -webkit-line-clamp: 2;
-`;
-
-const PriceText = styled.span`
-  font-size: 1.6rem;
-  font-weight: bold;
 `;

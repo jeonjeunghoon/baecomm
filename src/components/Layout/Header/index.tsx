@@ -1,11 +1,18 @@
 import styled from "styled-components";
+import SearchBox from "../../SearchBox";
 
 type Props = {
   hasTitle: boolean;
+  hasSearchBox: boolean;
 };
 
-export default function Header({ hasTitle }: Props) {
-  return <Container>{hasTitle && <Title>배컴 SHOP</Title>}</Container>;
+export default function Header({ hasTitle, hasSearchBox }: Props) {
+  return (
+    <Container>
+      {hasTitle && <Title>배컴 SHOP</Title>}
+      {hasSearchBox && <SearchBox />}
+    </Container>
+  );
 }
 
 const Container = styled.header`

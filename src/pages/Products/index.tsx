@@ -5,14 +5,24 @@ import Product from "../../components/Product";
 import Button from "../../components/common/Button";
 
 import { useProducts } from "./useProducts";
+import Text from "../../components/common/Text";
+import { useSetRecoilState } from "recoil";
+import { pageState } from "../../state";
 
 export default function Products() {
-  const { products, hasNext, showMoreProducts } = useProducts();
+  const { products, hasNext, isFetching } = useProducts();
+  const setPage = useSetRecoilState(pageState);
+
+  const changePage = () => {
+    if (isFetching || !hasNext) return;
+
+    setPage((page) => page + 1);
+  };
 
   if (!products) return null;
 
   return (
-    <Layout hasTitle>
+    <Layout hasTitle hasSearchBox>
       <ProductPage>
         <ProductList>
           {products.map(({ id, thumbnail, brand, title, price }) => {
@@ -31,7 +41,11 @@ export default function Products() {
         </ProductList>
         {hasNext && (
           <MoreButtonWrapper>
-            <Button label='더보기' stretch onClick={showMoreProducts} />
+            <Button stretch onClick={changePage}>
+              <Text size='medium' weight='bold' color='white'>
+                더보기
+              </Text>
+            </Button>
           </MoreButtonWrapper>
         )}
       </ProductPage>
