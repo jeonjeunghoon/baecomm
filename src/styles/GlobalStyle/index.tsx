@@ -12,4 +12,8 @@ export const GlobalStyle = createGlobalStyle`
 		font-family: 'Roboto', 'sans-serif';
 		color: ${({ theme }) => theme.colors.grey}
 	}
+
+	h1 {
+		font-size: 2.8rem;
+	}
 `;
