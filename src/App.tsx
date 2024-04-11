@@ -1,5 +1,10 @@
 import { Outlet } from "react-router-dom";
+import { RecoilRoot } from "recoil";
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <RecoilRoot>
+      <Outlet />
+    </RecoilRoot>
+  );
 }
