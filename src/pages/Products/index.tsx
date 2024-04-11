@@ -23,46 +23,33 @@ export default function Products() {
 
   return (
     <Layout hasTitle hasSearchBox>
-      <ProductPage>
-        <ProductList>
-          {products.map(({ id, thumbnail, brand, title, price }) => {
-            return (
-              <li key={id}>
-                <Product
-                  id={id}
-                  thumbnail={thumbnail}
-                  brand={brand}
-                  title={title}
-                  price={price}
-                />
-              </li>
-            );
-          })}
-        </ProductList>
-        {hasNext && (
-          <MoreButtonWrapper>
-            <Button stretch onClick={changePage}>
-              <Text size='medium' weight='bold' color='white'>
-                더보기
-              </Text>
-            </Button>
-          </MoreButtonWrapper>
-        )}
-      </ProductPage>
+      <ProductList>
+        {products.map(({ id, thumbnail, brand, title, price }) => {
+          return (
+            <li key={id}>
+              <Product
+                id={id}
+                thumbnail={thumbnail}
+                brand={brand}
+                title={title}
+                price={price}
+              />
+            </li>
+          );
+        })}
+      </ProductList>
+      {hasNext && (
+        <MoreButtonWrapper>
+          <Button stretch onClick={changePage}>
+            <Text size='medium' weight='bold' color='white'>
+              더보기
+            </Text>
+          </Button>
+        </MoreButtonWrapper>
+      )}
     </Layout>
   );
 }
-
-const ProductPage = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-  padding: 40px 70px;
-
-  border-radius: 8px;
-  background-color: white;
-`;
 
 const ProductList = styled.ul`
   display: grid;

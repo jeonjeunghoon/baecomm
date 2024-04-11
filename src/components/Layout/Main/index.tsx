@@ -20,7 +20,10 @@ const Wrapper = styled.div`
 const ChildrenSection = styled.section`
   width: 600px;
   margin: 0 auto;
+  padding: 40px 70px;
 
+  border-radius: 8px;
+  background-color: white;
   box-shadow: 12px 0 15px -4px rgba(0, 0, 0, 0.1),
     -12px 0 8px -4px rgba(0, 0, 0, 0.1);
 `;
