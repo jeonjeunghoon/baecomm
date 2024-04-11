@@ -1,5 +1,9 @@
 import styled from "styled-components";
+
+import CustomLink from "../../common/CustomLink";
 import SearchBox from "../../SearchBox";
+
+import { path } from "../../../constants/path";
 
 type Props = {
   hasTitle: boolean;
@@ -9,7 +13,9 @@ type Props = {
 export default function Header({ hasTitle, hasSearchBox }: Props) {
   return (
     <Container>
-      {hasTitle && <Title>배컴 SHOP</Title>}
+      <CustomLink to={path.app} color='white' reloadDocument>
+        {hasTitle && <Title>배컴 SHOP</Title>}
+      </CustomLink>
       {hasSearchBox && <SearchBox />}
     </Container>
   );

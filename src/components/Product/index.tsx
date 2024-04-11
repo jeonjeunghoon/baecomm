@@ -1,13 +1,14 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import { Product as Props } from "../../types/products";
+import CustomLink from "../common/CustomLink";
 import Text from "../common/Text";
+
+import { Product as Props } from "../../types/products";
 
 export default function Product({ id, thumbnail, brand, title, price }: Props) {
   return (
-    <Container>
-      <StyledLink to={`${id}`}>
+    <Wrapper>
+      <CustomLink to={`${id}`}>
         <Image src={thumbnail} alt='상품 이미지' />
         <Body>
           <BrandTitleContainer>
@@ -20,22 +21,20 @@ export default function Product({ id, thumbnail, brand, title, price }: Props) {
           </BrandTitleContainer>
           <Text weight='bold'>${price.toLocaleString("en-US")}</Text>
         </Body>
-      </StyledLink>
-    </Container>
+      </CustomLink>
+    </Wrapper>
   );
 }
 
-const Container = styled.div`
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 200px;
   height: 300px;
-`;
 
-const StyledLink = styled(Link)`
   &:hover {
-    & > div > div > span {
+    & > a > div > div > span {
       color: ${({ theme }) => theme.colors["--blue"]};
     }
   }
