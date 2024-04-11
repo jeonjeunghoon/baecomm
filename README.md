@@ -1,46 +1,60 @@
-# Getting Started with Create React App
+# 배컴 사전 과제
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 요구사항
 
-## Available Scripts
+### 기술 스택
 
-In the project directory, you can run:
+- TypeScript
+- React
+- React-Router
+- Styled-Components
 
-### `npm start`
+### API
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- https://dummyjson.com/docs/products
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 페이지
 
-### `npm test`
+- [ ] 상품 목록 페이지
+  - [ ] 검색 컴포넌트
+    - [ ] 상품 목록 페이지 최상단에 위치한다.
+    - [ ] 검색어를 입력할 수 있는 input이 있다.
+    - [ ] “검색” 버튼이 있다.
+    - [ ] 검색어를 입력하고 “검색”을 클릭하면 검색 결과가 반영된 목록이 표시된다.
+    - [ ] 검색어를 입력하고 엔터 키를 입력하면 검색 결과가 반영된 목록이 표시된다.
+    - [ ] [optional] placeholder
+    - [ ] [optional] 자동완성
+    - [ ] [optional] 최근 검색어
+  - [ ] 상품 목록 컴포넌트
+    - [ ] 검색 컴포넌트 하단에 위치한다.
+    - [ ] 기본적으로 10개의 상품을 출력한다.
+    - [ ] 한 행에 상품을 2개씩 배치한다.
+    - [ ] 각 상품의 thumbnail image, brand, title, price를 보여준다.
+    - [ ] 각 항목은 세로로 순서대로 표시하되, brand, title은 같은 행에 표시한다.
+    - [ ] 상품에 마우스를 올리면 brand, title 행의 색상이 파란색으로 표시된다.
+    - [ ] 상품을 클릭하면 해당 상품의 상세 페이지로 이동한다.
+  - [ ] 상품 목록 더보기 버튼 컴포넌트
+    - [ ] 상품 목록 컴포넌트 하단에 위치한다.
+    - [ ] “더보기” 텍스트가 표시된다.
+    - [ ] 버튼을 클릭하면 상품 목록 컴포넌트에서 10개의 상품을 추가로 보여준다.
+    - [ ] 더 표시할 상품이 있을 때에만 버튼이 표시된다.
+- [ ] 상품 상세 페이지
+  - [ ] 상품 목록 페이지 이동 링크 컴포넌트
+    - [ ] 상품 상세 페이지 최상단에 위치한다.
+    - [ ] “목록으로 돌아가기” 텍스트가 표시된다.
+    - [ ] 링크를 클릭하면 상품 목록 페이지로 이동한다.
+  - [ ] 상품 목록 페이지에서 검색 기능 사용 후 상품 상세 페이지로 이동한 경우, 상품 목록 페이지로 돌아가도 검색어와 검색 결과 그리고 스크롤 위치가 유지된다.
+  - [ ] 상품 상세 정보 컴포넌트
+    - [ ] 상품 목록 페이지 이동 버튼 컴포넌트 하단에 위치한다.
+    - [ ] 상품 목록 페이지에서 선택한 상품의 thumbnail image, brand, title, price, description과 images 배열의 각 image가 모두 표시된다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 컴포넌트
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [ ] 공통
+  - [ ] 버튼
+  - [ ] 링크
+- [ ] 검색
+- [ ] 상품
+- [ ] 상품 목록 더보기 버튼
+- [ ] 상품 목록 페이지 이동 링크 컴포넌트
+- [ ] 상품 상세 정보
