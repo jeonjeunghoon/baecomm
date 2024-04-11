@@ -1,12 +1,13 @@
+import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
 
 import Layout from "../../components/Layout";
-import Product from "../../components/Product";
+import CustomLink from "../../components/common/CustomLink";
 import Button from "../../components/common/Button";
+import Text from "../../components/common/Text";
+import Product from "../../components/Product";
 
 import { useProducts } from "./useProducts";
-import Text from "../../components/common/Text";
-import { useSetRecoilState } from "recoil";
 import { pageState } from "../../state";
 
 export default function Products() {
@@ -27,13 +28,15 @@ export default function Products() {
         {products.map(({ id, thumbnail, brand, title, price }) => {
           return (
             <li key={id}>
-              <Product
-                id={id}
-                thumbnail={thumbnail}
-                brand={brand}
-                title={title}
-                price={price}
-              />
+              <CustomLink to={`${id}`}>
+                <Product
+                  thumbnail={thumbnail}
+                  brand={brand}
+                  title={title}
+                  price={price}
+                  hasHoverEffect
+                />
+              </CustomLink>
             </li>
           );
         })}
