@@ -5,3 +5,8 @@ export type Product = {
   title: string;
   price: number;
 };
+
+export type ProductDetail = {
+  description: string;
+  images: string[];
+} & Product;

@@ -1,10 +1,14 @@
 import styled from "styled-components";
 
 import Text from "../common/Text";
+import Image from "../common/Image";
 
 import { Product as ProductType } from "../../types/products";
 
+type Size = "large" | "small";
+
 type Props = {
+  size?: Size;
   hasHoverEffect?: boolean;
 } & ProductType;
 
@@ -13,21 +17,24 @@ export default function Product({
   brand,
   title,
   price,
+  size = "small",
   hasHoverEffect = false,
 }: Omit<Props, "id">) {
   return (
     <Wrapper $hasHoverEffect={hasHoverEffect}>
-      <Image src={thumbnail} alt='상품 이미지' />
+      <Image src={thumbnail} alt='상품 이미지' stretch />
       <Body>
         <BrandTitleContainer>
           <Text size='small' weight='bold' color='gray'>
             {brand}
           </Text>
-          <Text size='small' stretch lineLimit={1}>
+          <Text size={size} stretch lineLimit={size === "small" ? 1 : 0}>
             {title}
           </Text>
         </BrandTitleContainer>
-        <Text weight='bold'>${price.toLocaleString("en-US")}</Text>
+        <Text size={size === "small" ? "medium" : "large"} weight='bold'>
+          ${price.toLocaleString("en-US")}
+        </Text>
       </Body>
     </Wrapper>
   );
@@ -37,8 +44,6 @@ const Wrapper = styled.div<{ $hasHoverEffect: boolean }>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 200px;
-  height: 300px;
 
   &:hover {
     & > div > div > span {
@@ -46,14 +51,6 @@ const Wrapper = styled.div<{ $hasHoverEffect: boolean }>`
         $hasHoverEffect && theme.colors["--blue"]};
     }
   }
-`;
-
-const Image = styled.img`
-  min-width: 200px;
-  max-width: 200px;
-
-  min-height: 200px;
-  max-height: 200px;
 `;
 
 const Body = styled.div`

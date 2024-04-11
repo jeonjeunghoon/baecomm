@@ -15,7 +15,7 @@ export default function Text({
   size = "medium",
   weight = "normal",
   color = "default",
-  lineLimit = 3,
+  lineLimit = 0,
   stretch = false,
   children,
 }: Props) {
