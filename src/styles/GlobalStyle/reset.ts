@@ -20,15 +20,15 @@ export const reset = css`
   }
 
   a {
-    color: ${({ theme }) => theme.colors.grey};
+    color: ${({ theme }) => theme.colors["--gray"]};
     text-decoration: none;
 
     &:link {
-      color: ${({ theme }) => theme.colors.grey};
+      color: ${({ theme }) => theme.colors["--gray"]};
     }
 
     &:visited {
-      color: ${({ theme }) => theme.colors.grey};
+      color: ${({ theme }) => theme.colors["--gray"]};
     }
   }
 

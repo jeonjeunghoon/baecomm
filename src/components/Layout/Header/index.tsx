@@ -18,7 +18,7 @@ const Container = styled.header`
   right: 0;
   height: 60px;
   padding: 12px 60px;
-  background: ${({ theme }) => theme.colors.gradient};
+  background: ${({ theme }) => theme.colors["--gradient"]};
 `;
 
 const Title = styled.h1`

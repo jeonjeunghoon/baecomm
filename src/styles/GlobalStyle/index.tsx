@@ -10,7 +10,7 @@ export const GlobalStyle = createGlobalStyle`
 
 	* {
 		font-family: 'Roboto', 'sans-serif';
-		color: ${({ theme }) => theme.colors.grey}
+		color: ${({ theme }) => theme.colors["--gray"]}
 	}
 
 	h1 {
