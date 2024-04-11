@@ -7,12 +7,22 @@ import Main from "./Main";
 type Props = {
   hasTitle: boolean;
   hasSearchBox: boolean;
+  hasLink: boolean;
 } & PropsWithChildren;
 
-export default function Layout({ hasTitle, hasSearchBox, children }: Props) {
+export default function Layout({
+  hasTitle,
+  hasSearchBox,
+  hasLink,
+  children,
+}: Props) {
   return (
     <Container>
-      <Header hasTitle={hasTitle} hasSearchBox={hasSearchBox} />
+      <Header
+        hasTitle={hasTitle}
+        hasSearchBox={hasSearchBox}
+        hasLink={hasLink}
+      />
       <Main>{children}</Main>
     </Container>
   );

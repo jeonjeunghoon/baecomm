@@ -22,7 +22,7 @@ export default function Products() {
   if (!products) return null;
 
   return (
-    <Layout hasTitle hasSearchBox>
+    <Layout hasTitle hasSearchBox hasLink={false}>
       <ProductList>
         {products.map(({ id, thumbnail, brand, title, price }) => {
           return (
