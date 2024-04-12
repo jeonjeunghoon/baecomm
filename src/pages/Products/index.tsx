@@ -1,4 +1,3 @@
-import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
 
 import Layout from "../../components/Layout";
@@ -8,17 +7,9 @@ import Text from "../../components/common/Text";
 import Product from "../../components/Product";
 
 import { useProducts } from "./useProducts";
-import { pageState } from "../../state";
 
 export default function Products() {
-  const { products, hasNext, isFetching } = useProducts();
-  const setPage = useSetRecoilState(pageState);
-
-  const changePage = () => {
-    if (isFetching || !hasNext) return;
-
-    setPage((page) => page + 1);
-  };
+  const { products, hasNext, loadMoreProducts } = useProducts();
 
   if (!products) return null;
 
@@ -43,7 +34,7 @@ export default function Products() {
       </ProductList>
       {hasNext && (
         <MoreButtonWrapper>
-          <Button stretch onClick={changePage}>
+          <Button stretch onClick={loadMoreProducts}>
             <Text size='medium' weight='bold' color='white'>
               더보기
             </Text>

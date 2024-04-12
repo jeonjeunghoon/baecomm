@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 
 import { START_PAGE, pageState, searchWordState } from "../../state";
 import { Product } from "../../types/products";
@@ -13,17 +13,17 @@ type ProductsResponse = {
   total: number;
 };
 
-const PER_COUNT = 10;
-
 export const useProducts = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [isFetching, setIsFetching] = useState(false);
   const [hasNext, setHasNext] = useState(false);
+  const [page, setPage] = useRecoilState(pageState);
   const searchWord = useRecoilValue(searchWordState);
-  const page = useRecoilValue(pageState);
 
   useEffect(() => {
     const fetchProducts = async () => {
+      const PER_COUNT = 10;
+
       try {
         setIsFetching(true);
         const defaultQuery = `limit=10&skip=${
@@ -54,5 +54,11 @@ export const useProducts = () => {
     fetchProducts();
   }, [page, searchWord]);
 
-  return { products, hasNext, isFetching };
+  const loadMoreProducts = () => {
+    if (isFetching || !hasNext) return;
+
+    setPage((page) => page + 1);
+  };
+
+  return { products, hasNext, isFetching, loadMoreProducts };
 };
