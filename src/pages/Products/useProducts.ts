@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 
-import { START_PAGE, pageState, searchWordState } from "../../state";
+import { pageState, productsState, searchWordState } from "../../state";
 import { Product } from "../../types/products";
 import { http } from "../../api/http";
-import { DOMAIN_URL } from "../../constants/url";
+import {
+  GENERATE_PRODUCTS_URL,
+  GENERATE_SEARCH_URL,
+} from "../../constants/url";
 
 type ProductsResponse = {
   products: Product[];
@@ -14,51 +17,40 @@ type ProductsResponse = {
 };
 
 export const useProducts = () => {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [isFetching, setIsFetching] = useState(false);
-  const [hasNext, setHasNext] = useState(false);
+  const [products, setProducts] = useRecoilState(productsState);
+  const [isFetchingNextPage, setIsFetchingNextPage] = useState(false);
+  const [hasNextPage, setHasNextPage] = useState(false);
   const [page, setPage] = useRecoilState(pageState);
   const searchWord = useRecoilValue(searchWordState);
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const PER_COUNT = 10;
-
       try {
-        setIsFetching(true);
-        const defaultQuery = `limit=10&skip=${
-          page * PER_COUNT
-        }&select=thumbnail,brand,title,price`;
+        setIsFetchingNextPage(true);
+
         const data = await http.get<ProductsResponse>(
-          `${DOMAIN_URL}/products${
-            searchWord
-              ? `/search?q=${searchWord}&${defaultQuery}`
-              : `?${defaultQuery}`
-          }`
+          searchWord
+            ? GENERATE_SEARCH_URL(searchWord, page)
+            : GENERATE_PRODUCTS_URL(page)
         );
 
-        if (searchWord && page === START_PAGE) {
-          setProducts(data.products);
-          setHasNext(data.products.length < data.total);
-        } else {
-          setProducts([...products, ...data.products]);
-          setHasNext(products.length + data.products.length < data.total);
-        }
+        setProducts(data.products);
+        setHasNextPage(data.products.length < data.total);
 
-        setIsFetching(false);
+        setIsFetchingNextPage(false);
       } catch (error) {
         console.error(error);
       }
     };
 
     fetchProducts();
-  }, [page, searchWord]);
+  }, [page, searchWord, setProducts]);
 
-  const loadMoreProducts = () => {
-    if (isFetching || !hasNext) return;
+  const fetchNextPage = () => {
+    if (isFetchingNextPage || !hasNextPage) return;
 
     setPage((page) => page + 1);
   };
 
-  return { products, hasNext, isFetching, loadMoreProducts };
+  return { products, hasNextPage, isFetchingNextPage, fetchNextPage };
 };

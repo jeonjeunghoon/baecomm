@@ -6,7 +6,8 @@ import Input from "../common/Input";
 import Button from "../common/Button";
 import Text from "../common/Text";
 
-import { START_PAGE, pageState, searchWordState } from "../../state";
+import { pageState, searchWordState } from "../../state";
+import { START_PAGE } from "../../constants/product";
 
 export default function SearchBox() {
   const [value, setValue] = useState("");

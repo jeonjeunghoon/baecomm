@@ -9,7 +9,7 @@ import Product from "../../components/Product";
 import { useProducts } from "./useProducts";
 
 export default function Products() {
-  const { products, hasNext, loadMoreProducts } = useProducts();
+  const { products, hasNextPage, fetchNextPage } = useProducts();
 
   if (!products) return null;
 
@@ -32,9 +32,9 @@ export default function Products() {
           );
         })}
       </ProductList>
-      {hasNext && (
+      {hasNextPage && (
         <MoreButtonWrapper>
-          <Button stretch onClick={loadMoreProducts}>
+          <Button stretch onClick={fetchNextPage}>
             <Text size='medium' weight='bold' color='white'>
               더보기
             </Text>
