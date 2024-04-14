@@ -1,7 +1,7 @@
 import { atom } from "recoil";
 
-import { Product } from "../../types/products";
 import { START_PAGE } from "../../constants/product";
+import { ProductsAtom } from "./type";
 
 export const searchWordState = atom({
   key: "search",
@@ -13,7 +13,7 @@ export const pageState = atom({
   default: START_PAGE,
 });
 
-export const productsState = atom<Product[]>({
+export const productsState = atom<ProductsAtom | null>({
   key: "products",
-  default: [],
+  default: null,
 });

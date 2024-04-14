@@ -1,23 +1,40 @@
 import { MouseEventHandler, PropsWithChildren } from "react";
 import styled, { css } from "styled-components";
 
+import Text from "../Text";
+
 type Variant = "primary" | "secondary";
 
 type Props = {
   variant?: Variant;
   stretch?: boolean;
+  pending?: boolean;
+  disabled?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
 } & PropsWithChildren;
 
 export default function Button({
   variant = "primary",
   stretch = false,
+  pending = false,
+  disabled = false,
   children,
   onClick,
 }: Props) {
   return (
-    <StyledButton $variant={variant} $stretch={stretch} onClick={onClick}>
-      {children}
+    <StyledButton
+      $variant={variant}
+      $stretch={stretch}
+      disabled={disabled}
+      onClick={onClick}
+    >
+      {pending ? (
+        <Text size='medium' weight='bold' color='white'>
+          로딩 중 ...
+        </Text>
+      ) : (
+        children
+      )}
     </StyledButton>
   );
 }

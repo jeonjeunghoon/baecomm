@@ -44,6 +44,15 @@
 
 - react router의 <ScrollRestoration /> 컴포넌트와 옵션 getKey 활용
 
+### Suspense 적용
+
+- UX를 위해, Fetch on Render 방식에서 Render as you fetch로 전환
+- React Query 없이 Suspense 사용법 학습 [카카오 FE 기술 블로그](https://fe-developers.kakaoent.com/2021/211127-211209-suspense/)
+- 잘못된 suspense 사용으로 인한 페이지 리렌더링 이슈 발생
+  - 문제1: 더보기 버튼 클릭으로 추가 데이터 로드 시 suspense 발동으로 쓸데 없는 리렌더링 + 스크롤이 초기화되는 문제 발생
+  - 문제2: 상품 상세 페이지와 페이지 전환할 때 suspense 발동으로 쓸데 없는 리렌더링 + 스크롤이 초기화되는 문제 발생
+  - 해결법: 조건부로 suspense를 사용하도록 suspense option 추가로 해결 (상품 목록 페이지 최초 진입, 검색할 경우만 suspense를 활성화 하도록 설정)
+
 ## 요구사항
 
 ### 기술 스택
@@ -110,7 +119,7 @@
 
 **Products**
 
-- [ ] 로딩 상태를 보여준다.
+- [x] 로딩 상태를 보여준다.
 - [ ] 에러 상태를 보여준다.
 - [ ] 빈 상품일 때 적절한 컴포넌트를 보여준다.
 - [ ] Masonry 레이아웃 스타일로 보여준다.
