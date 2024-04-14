@@ -1,5 +1,9 @@
 # 배컴 사전 과제
 
+## 구조
+
+[![구조](https://mermaid.ink/img/pako:eNqrVkrOT0lVslJKy8kvT85ILCpRCHGJyVMAAsdox4KCWAVdXTun6DfNjW8ndSi8XrXy9cK5Cm_7ZryZu-XN8oZYdJXOMJVA6k3LDoU3C6a-3rwFQ4MTSG0NVOnbxi2vl62tUXBGlns7fcnr3ilwOSeInDNYDuKKN3P2vF44R-F1f8-bqS2vNjS82rEBoVxJRyk3tSg3MTMF6LVqkOYYpZKM1NzUGCUrIDMlsSg7RikmrxaoLrG0JD-4Mi9ZySotMac4VUeptCAlsSTVJTMxvSgxFy5akJgXlZ8P49cCAIGEhm0?type=png)](https://mermaid.live/edit#pako:eNqrVkrOT0lVslJKy8kvT85ILCpRCHGJyVMAAsdox4KCWAVdXTun6DfNjW8ndSi8XrXy9cK5Cm_7ZryZu-XN8oZYdJXOMJVA6k3LDoU3C6a-3rwFQ4MTSG0NVOnbxi2vl62tUXBGlns7fcnr3ilwOSeInDNYDuKKN3P2vF44R-F1f8-bqS2vNjS82rEBoVxJRyk3tSg3MTMF6LVqkOYYpZKM1NzUGCUrIDMlsSg7RikmrxaoLrG0JD-4Mi9ZySotMac4VUeptCAlsSTVJTMxvSgxFy5akJgXlZ8P49cCAIGEhm0)
+
 ## 트러블 슈팅
 
 ### 검색 결과와 스크롤 위치를 어떻게 해야 유지할 수 있을까?
