@@ -34,7 +34,7 @@ export default class ErrorBoundary extends Component<Props, State> {
   }
 
   render() {
-    const { hasError, error, info } = this.state;
+    const { hasError } = this.state;
     const { fallback, children } = this.props;
 
     if (!hasError) return children;
