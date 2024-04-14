@@ -1,16 +1,18 @@
 # 배컴 사전 과제
 
+## 링크
+
+[🛍️ 배포된 사이트](https://baecomm.netlify.app/)
+
+[🎨 피그마 디자인](https://www.figma.com/file/iHOJ6tgNBiAV8hhbvzUvmE/%EB%94%94%EC%9E%90%EC%9D%B8?type=design&node-id=0%3A1&mode=design&t=Kju5aMKgp05Kc3CT-1)
+
 ## 구조
 
 [![구조](https://mermaid.ink/img/pako:eNqrVkrOT0lVslJKy8kvT85ILCpRCHGJyVMAAsdox4KCWAVdXTun6DfNjW8ndSi8XrXy9cK5Cm_7ZryZu-XN8oZYdJXOMJVA6k3LDoU3C6a-3rwFQ4MTSG0NVOnbxi2vl62tUXBGlns7fcnr3ilwOSeInDNYDuKKN3P2vF44R-F1f8-bqS2vNjS82rEBoVxJRyk3tSg3MTMF6LVqkOYYpZKM1NzUGCUrIDMlsSg7RikmrxaoLrG0JD-4Mi9ZySotMac4VUeptCAlsSTVJTMxvSgxFy5akJgXlZ8P49cCAIGEhm0?type=png)](https://mermaid.live/edit#pako:eNqrVkrOT0lVslJKy8kvT85ILCpRCHGJyVMAAsdox4KCWAVdXTun6DfNjW8ndSi8XrXy9cK5Cm_7ZryZu-XN8oZYdJXOMJVA6k3LDoU3C6a-3rwFQ4MTSG0NVOnbxi2vl62tUXBGlns7fcnr3ilwOSeInDNYDuKKN3P2vF44R-F1f8-bqS2vNjS82rEBoVxJRyk3tSg3MTMF6LVqkOYYpZKM1NzUGCUrIDMlsSg7RikmrxaoLrG0JD-4Mi9ZySotMac4VUeptCAlsSTVJTMxvSgxFy5akJgXlZ8P49cCAIGEhm0)
 
-## 피그마
-
-[디자인 링크](https://www.figma.com/file/iHOJ6tgNBiAV8hhbvzUvmE/%EB%94%94%EC%9E%90%EC%9D%B8?type=design&node-id=0%3A1&mode=design&t=Kju5aMKgp05Kc3CT-1)
-
 ## 트러블 슈팅
 
-### 검색 결과와 스크롤 위치를 어떻게 해야 유지할 수 있을까?
+### 검색 결과와 스크롤 위치를 어떻게 유지할 수 있을까?
 
 **타 사이트 조사**
 
@@ -50,7 +52,7 @@
 
 **스크롤 유지**
 
-- react router의 <ScrollRestoration /> 컴포넌트와 옵션 getKey 활용
+- react router의 ScrollRestoration 컴포넌트와 옵션 getKey 활용
 
 ### Suspense 적용
 
@@ -87,6 +89,7 @@
 - React
 - React-Router
 - Styled-Components
+- Recoil
 
 ### API
 
@@ -141,7 +144,6 @@
 **SearchBox**
 
 - [x] placeholder
-- [ ] 최근 검색어
 
 **Products**
 
@@ -149,7 +151,6 @@
 - [x] 에러 상태를 보여준다.
 - [x] 빈 상품일 때 적절한 컴포넌트를 보여준다.
 - [x] 캐싱된 데이터가 존재하고, 추가 데이터가 필요하지 않으면 다시 API 요청하지 않는다.
-- [ ] skip 쿼리를 이용해 페이지네이션 형식으로 데이터를 요청한다.
 
 **ProductDetail**
 
