@@ -5,6 +5,8 @@ import SearchBox from "../../SearchBox";
 
 import { PATH } from "../../../constants/path";
 import Arrow from "../../../asset/svg/arrow";
+import { MAX_WIDTH } from "../../../styles/GlobalStyle";
+import Text from "../../common/Text";
 
 type Props = {
   hasTitle: boolean;
@@ -19,7 +21,9 @@ export default function Header({ hasTitle, hasSearchBox, hasLink }: Props) {
         <CustomLink to={PATH.PRODUCTS}>
           <LinkContentWrapper>
             <Arrow width={36} height={36} />
-            <Title>목록으로 돌아가기</Title>
+            <Text size='large' weight='bold' color='white'>
+              목록으로 돌아가기
+            </Text>
           </LinkContentWrapper>
         </CustomLink>
       )}
@@ -40,8 +44,12 @@ const Container = styled.header`
   left: 0;
   right: 0;
   height: 60px;
-  padding: 12px 60px;
+  padding: 12px 20px;
   background: ${({ theme }) => theme.colors["--gradient"]};
+
+  @media (max-width: ${MAX_WIDTH.MOBILE_MEDIUM}) {
+    font-size: 9px;
+  }
 `;
 
 const LinkContentWrapper = styled.div`
@@ -53,4 +61,8 @@ const LinkContentWrapper = styled.div`
 const Title = styled.h1`
   font-size: 2.8rem;
   color: white;
+
+  @media (max-width: ${MAX_WIDTH.MOBILE_MEDIUM}) {
+    display: none;
+  }
 `;

@@ -7,6 +7,7 @@ import Button from "../common/Button";
 import Text from "../common/Text";
 
 import { useProducts } from "./useProducts";
+import { MAX_WIDTH } from "../../styles/GlobalStyle";
 
 export default function ProductList() {
   const { products, hasNext, isLoading, fetchNextPage, reset } = useProducts();
@@ -68,4 +69,8 @@ const Container = styled.ul`
 const MoreButtonWrapper = styled.div`
   display: flex;
   width: 100%;
+
+  @media (max-width: ${MAX_WIDTH.MOBILE_MEDIUM}) {
+    height: 60px;
+  }
 `;
