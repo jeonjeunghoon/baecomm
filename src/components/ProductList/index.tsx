@@ -11,7 +11,9 @@ import { useProducts } from "./useProducts";
 export default function ProductList() {
   const { products, hasNext, isLoading, fetchNextPage, reset } = useProducts();
 
-  if (!products || !products.length)
+  if (!products) return null;
+
+  if (!products.length)
     return (
       <Error
         title='상품이 없어요'

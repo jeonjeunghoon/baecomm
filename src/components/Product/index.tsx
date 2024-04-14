@@ -25,14 +25,23 @@ export default function Product({
       <Image src={thumbnail} alt='상품 이미지' stretch />
       <Body>
         <BrandTitleContainer>
-          <Text size='small' weight='bold' color='gray'>
+          <Text size='small' weight='bold' color='gray' align='left'>
             {brand}
           </Text>
-          <Text size={size} stretch lineLimit={size === "small" ? 1 : 0}>
+          <Text
+            size={size}
+            stretch
+            lineLimit={size === "small" ? 1 : 0}
+            align='left'
+          >
             {title}
           </Text>
         </BrandTitleContainer>
-        <Text size={size === "small" ? "medium" : "large"} weight='bold'>
+        <Text
+          size={size === "small" ? "medium" : "large"}
+          weight='bold'
+          align='left'
+        >
           ${price.toLocaleString("en-US")}
         </Text>
       </Body>

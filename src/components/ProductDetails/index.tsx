@@ -24,7 +24,7 @@ export default function ProductDetails({ id }: Props) {
         price={productDetails.price}
         size='large'
       />
-      <Text>{productDetails.description}</Text>
+      <Text align='left'>{productDetails.description}</Text>
       <ImageList>
         {productDetails.images.map((image, index) => {
           return (
