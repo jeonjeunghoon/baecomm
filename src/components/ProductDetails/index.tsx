@@ -43,12 +43,12 @@ export default function ProductDetails({ id }: Props) {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
 `;
 
 const ImageList = styled.ul`
   display: flex;
   gap: 12px;
+  margin-top: 40px;
   padding: 12px 0;
   overflow: scroll;
 `;
