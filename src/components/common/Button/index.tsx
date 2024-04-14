@@ -1,6 +1,7 @@
 import { MouseEventHandler, PropsWithChildren } from "react";
 import styled, { css } from "styled-components";
 
+import Spinner from "../Spinner";
 import Text from "../Text";
 
 type Variant = "primary" | "secondary";
@@ -29,11 +30,11 @@ export default function Button({
       onClick={onClick}
     >
       {pending ? (
-        <Text size='medium' weight='bold' color='white'>
-          로딩 중 ...
-        </Text>
+        <Spinner size='medium' color='white' />
       ) : (
-        children
+        <Text size='medium' weight='bold' color='white'>
+          {children}
+        </Text>
       )}
     </StyledButton>
   );

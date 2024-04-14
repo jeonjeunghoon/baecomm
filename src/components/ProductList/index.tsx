@@ -4,7 +4,6 @@ import Error from "../Error";
 import Product from "../Product";
 import CustomLink from "../common/CustomLink";
 import Button from "../common/Button";
-import Text from "../common/Text";
 
 import { useProducts } from "./useProducts";
 import { MAX_WIDTH } from "../../styles/GlobalStyle";
@@ -50,9 +49,7 @@ export default function ProductList() {
             disabled={isLoading}
             onClick={fetchNextPage}
           >
-            <Text size='medium' weight='bold' color='white'>
-              더보기
-            </Text>
+            더보기
           </Button>
         </MoreButtonWrapper>
       )}

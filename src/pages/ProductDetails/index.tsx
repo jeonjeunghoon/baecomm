@@ -1,10 +1,13 @@
 import { Suspense } from "react";
 import { useLocation } from "react-router-dom";
+import styled from "styled-components";
 
 import Layout from "../../components/Layout";
 import ErrorBoundary from "../../components/ErrorBoundary";
 import ProductDetails from "../../components/ProductDetails";
 import Error from "../../components/Error";
+import Spinner from "../../components/common/Spinner";
+
 import { PATH } from "../../constants/path";
 
 export default function ProductDetailsPage() {
@@ -23,10 +26,24 @@ export default function ProductDetailsPage() {
           />
         }
       >
-        <Suspense fallback={<div>로딩 중 ...</div>}>
+        <Suspense
+          fallback={
+            <SpinnerWrapper>
+              <Spinner size='large' />
+            </SpinnerWrapper>
+          }
+        >
           <ProductDetails id={id} />
         </Suspense>
       </ErrorBoundary>
     </Layout>
   );
 }
+
+const SpinnerWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+`;

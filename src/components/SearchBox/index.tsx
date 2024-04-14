@@ -4,7 +4,6 @@ import styled from "styled-components";
 
 import Input from "../common/Input";
 import Button from "../common/Button";
-import Text from "../common/Text";
 
 import { pageState, searchWordState } from "../../state";
 import { START_PAGE } from "../../constants/product";
@@ -40,9 +39,7 @@ export default function SearchBox() {
       />
       <ButtonWrapper>
         <Button variant='secondary' stretch onClick={storeSearchWordWithClick}>
-          <Text size='small' weight='bold' color='white'>
-            검색
-          </Text>
+          검색
         </Button>
       </ButtonWrapper>
     </Container>
