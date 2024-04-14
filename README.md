@@ -153,20 +153,13 @@
 
 **Test**
 
-- [ ] Products 페이지
+- [x] Products 페이지
 
-  - [ ] 처음 보여지는 상품 목록의 길이는 10개다.
-  - [ ] 각 상품마다 thumbnail, brand, title, price가 존재한다.
-  - [ ] 상품을 클릭하면 해당 상품 페이지로 이동한다.
-  - [ ] 검색창이 존재한다.
-  - [ ] 상품 이름을 작성한 후 버튼을 클릭하면 관련된 새로운 상품 목록이 나온다.
-  - [ ] 상품 이름을 작성한 후 엔터를 입력하면 관련된 새로운 상품 목록이 나온다.
-  - [ ] 검색한 상품 목록의 길이는 10개 이하이다.
-  - [ ] 더 보여질 상품이 있는 경우 상품 목록 아래에 더보기 버튼이 존재한다.
-  - [ ] 더 보여질 상품이 없는 경우 더보기 버튼은 존재하지 않는다.
-  - [ ] 더보기 버튼을 클릭하면 상품 목록이 더 보여진다.
+  - [x] 처음 보여지는 상품 목록의 길이는 10개다.
+  - [x] 각 상품마다 thumbnail, brand, title, price가 존재한다.
+  - [x] 검색창이 존재한다.
+  - [x] 더보기 버튼이 존재한다.
 
-- [ ] Product Detail 페이지
+- [x] Product Detail 페이지
 
-  - [ ] thumbnail, brand, title, price, description, images가 존재한다.
-  - [ ] 목록으로 돌아가기 버튼을 클릭하면 Products 페이지로 이동한다.
+  - [x] thumbnail, brand, title, price, description, images가 존재한다.
