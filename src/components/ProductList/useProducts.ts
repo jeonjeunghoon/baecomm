@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 
 import { pageState, productsState, searchWordState } from "../../state";
 import { useFetch } from "../../hooks/useFetch";
@@ -9,6 +9,7 @@ import {
   GENERATE_SEARCH_URL,
 } from "../../constants/url";
 import { Product } from "../../types/products";
+import { START_PAGE } from "../../constants/product";
 
 type ProductsResponse = {
   products: Product[];
@@ -20,7 +21,7 @@ type ProductsResponse = {
 export const useProducts = () => {
   const [products, setProducts] = useRecoilState(productsState);
   const [page, setPage] = useRecoilState(pageState);
-  const searchWord = useRecoilValue(searchWordState);
+  const [searchWord, setSearchWord] = useRecoilState(searchWordState);
   const url = searchWord
     ? GENERATE_SEARCH_URL(searchWord, page)
     : GENERATE_PRODUCTS_URL(page);
@@ -37,6 +38,11 @@ export const useProducts = () => {
     if (!hasNext || isLoading) return;
 
     setPage((page) => page + 1);
+  };
+
+  const reset = () => {
+    setPage(START_PAGE);
+    setSearchWord("");
   };
 
   useEffect(() => {
@@ -56,5 +62,6 @@ export const useProducts = () => {
     hasNext,
     isLoading,
     fetchNextPage,
+    reset,
   };
 };

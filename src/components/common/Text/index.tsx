@@ -2,6 +2,7 @@ import { PropsWithChildren } from "react";
 import styled, { CSSProperties } from "styled-components";
 
 type Size = "large" | "medium" | "small";
+type Align = "left" | "center" | "right";
 
 type Props = {
   size?: Size;
@@ -9,6 +10,7 @@ type Props = {
   color?: CSSProperties["color"];
   lineLimit?: number;
   stretch?: boolean;
+  align?: Align;
 } & PropsWithChildren;
 
 export default function Text({
@@ -17,6 +19,7 @@ export default function Text({
   color = "default",
   lineLimit = 0,
   stretch = false,
+  align = "center",
   children,
 }: Props) {
   return (
@@ -26,6 +29,7 @@ export default function Text({
       $color={color}
       $lineLimit={lineLimit}
       $stretch={stretch}
+      $align={align}
     >
       {children}
     </StyledText>
@@ -38,11 +42,13 @@ const StyledText = styled.span<{
   $color: CSSProperties["color"];
   $lineLimit: number;
   $stretch: boolean;
+  $align: Align;
 }>`
   flex: ${({ $stretch }) => $stretch && 1};
   font-size: ${({ $size }) => generateSize($size)};
   font-weight: ${({ $weight }) => $weight};
   color: ${({ $color }) => $color !== "default" && $color};
+  text-align: ${({ $align }) => $align};
 
   ${({ $lineLimit }) =>
     $lineLimit &&

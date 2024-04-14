@@ -1,16 +1,24 @@
 import styled from "styled-components";
 
+import Error from "../Error";
 import Product from "../Product";
 import CustomLink from "../common/CustomLink";
 import Button from "../common/Button";
 import Text from "../common/Text";
 
-import { useProducts } from "../../pages/Products/useProducts";
+import { useProducts } from "./useProducts";
 
 export default function ProductList() {
-  const { products, hasNext, isLoading, fetchNextPage } = useProducts();
+  const { products, hasNext, isLoading, fetchNextPage, reset } = useProducts();
 
-  if (!products) return null;
+  if (!products || !products.length)
+    return (
+      <Error
+        title='상품이 없어요'
+        label='홈으로 돌아가기'
+        handleButtonClick={reset}
+      />
+    );
 
   return (
     <>

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import CustomLink from "../../common/CustomLink";
 import SearchBox from "../../SearchBox";
 
-import { path } from "../../../constants/path";
+import { PATH } from "../../../constants/path";
 import Arrow from "../../../asset/svg/arrow";
 
 type Props = {
@@ -16,14 +16,14 @@ export default function Header({ hasTitle, hasSearchBox, hasLink }: Props) {
   return (
     <Container>
       {hasLink && (
-        <CustomLink to={path.app}>
+        <CustomLink to={PATH.PRODUCTS}>
           <LinkContentWrapper>
             <Arrow width={36} height={36} />
             <Title>목록으로 돌아가기</Title>
           </LinkContentWrapper>
         </CustomLink>
       )}
-      <CustomLink to={path.app} color='white' reloadDocument>
+      <CustomLink to={PATH.PRODUCTS} color='white' reloadDocument>
         {hasTitle && <Title>배컴 SHOP</Title>}
       </CustomLink>
       {hasSearchBox && <SearchBox />}

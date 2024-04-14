@@ -1,5 +1,5 @@
-export const path = {
-  app: "/",
-  products: "/",
-  productDetail: ":id",
+export const PATH = {
+  APP: "/",
+  PRODUCTS: "/",
+  PRODUCT_DETAILS: ":id",
 } as const;

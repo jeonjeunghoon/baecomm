@@ -1,25 +1,27 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-import { path } from "../constants/path";
+import { PATH } from "../constants/path";
 
 import App from "../App";
-import Products from "../pages/Products";
-import ProductDetail from "../pages/ProductDetail";
+import ProductsPage from "../pages/Products";
+import ProductDetailsPage from "../pages/ProductDetails";
+import NotFound from "../pages/NotFound";
 
 const router = createBrowserRouter([
   {
-    path: path.app,
+    path: PATH.APP,
     element: <App />,
     children: [
       {
-        path: path.products,
-        element: <Products />,
+        path: PATH.PRODUCTS,
+        element: <ProductsPage />,
       },
       {
-        path: path.productDetail,
-        element: <ProductDetail />,
+        path: PATH.PRODUCT_DETAILS,
+        element: <ProductDetailsPage />,
       },
     ],
+    errorElement: <NotFound />,
   },
 ]);
 

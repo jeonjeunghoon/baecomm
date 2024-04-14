@@ -6,7 +6,7 @@ export type Product = {
   price: number;
 };
 
-export type ProductDetail = {
+export type ProductDetails = {
   description: string;
   images: string[];
 } & Product;
