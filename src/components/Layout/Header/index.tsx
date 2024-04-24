@@ -28,7 +28,7 @@ export default function Header({ hasTitle, hasSearchBox, hasLink }: Props) {
         </CustomLink>
       )}
       <CustomLink to={PATH.PRODUCTS} color='white' reloadDocument>
-        {hasTitle && <Title>배컴 SHOP</Title>}
+        {hasTitle && <Title>SHOP</Title>}
       </CustomLink>
       {hasSearchBox && <SearchBox />}
     </Container>
