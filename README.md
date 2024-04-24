@@ -1,5 +1,3 @@
-# 배컴 사전 과제
-
 ## 링크
 
 [🛍️ 배포된 사이트](https://baecomm.netlify.app/)
